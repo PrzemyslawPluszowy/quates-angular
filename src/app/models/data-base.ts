@@ -1,4 +1,5 @@
-export const QUOTES = [
+import { Quotation } from './quote';
+export const QUOTES: Quotation[] = [
   {
     author: 'Jonathan Carroll',
     quotation: 'To, że milczę, nie znaczy, że nie mam nic do powiedzenia.',
@@ -17,7 +18,7 @@ export const QUOTES = [
   {
     author: 'Stanisław Lem',
     quotation: 'Bądź dobrej myśli, bo po co być złej.',
-    votes: null,
+    votes: 0,
   },
   {
     author: 'Tove Jansson',
@@ -27,6 +28,6 @@ export const QUOTES = [
   {
     author: 'Peter Lippert',
     quotation: 'Życia nie można wybrać, ale można z niego coś zrobić.',
-    votes: null,
+    votes: 0,
   },
 ];
