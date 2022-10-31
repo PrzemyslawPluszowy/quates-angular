@@ -1,8 +1,5 @@
-<nav>
-  <div class="nav-wrapper teal darken-3">
-    <span class="brand-logo center">Najlepsze cytaty</span>
-  </div>
-</nav>
+<app-navbar title="Najlepsze cytaty"></app-navbar>
+
 <div class="container q-container">
   <button (click)="addButton=!addButton" class="btn-floating teal add-button">
     <i class="material-icons">add</i>
@@ -47,33 +44,13 @@
 
     <!-- Sekcja rankigów -->
     <div class="col s4">
-      <div class="col s12">
-        <h5>Najlepsze</h5>
-        <div class="collection">
-          <ng-container *ngFor="let quote of quotes">
-            <p class="collection-item" *ngIf="(quote.votes>0)">
-              <span class="blue lighten-4 badge">{{quote.votes}}</span>
-              {{quote.quotation}}<br />
-              <span class="blue-text">{{quote.author}}</span>
-            </p>
-          </ng-container>
-        </div>
-      </div>
-      <div class="col s12">
-        <h5>Najgorsze</h5>
-        <div class="collection">
-          <p class="collection-item">
-            <ng-container *ngFor="let quote of quotes">
-              <p class="collection-item" *ngIf="(quote.votes<0)">
-                <span class="blue lighten-4 badge">{{quote.votes}}</span>
-                {{quote.quotation}}<br />
-                <span class="blue-text">{{quote.author}}</span>
-              </p>
-            </ng-container>
-          </p>
-        </div>
-      </div>
+      <app-ranking [bestQuotes]="bestQuotes()" title="titleBest"></app-ranking>
+      <app-ranking [bestQuotes]="worstQuotes()" title="titleWorst"></app-ranking>
+
+
+
     </div>
+
     <!-- Sekcja rankigów -->
   </div>
 </div>

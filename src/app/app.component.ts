@@ -11,6 +11,8 @@ export class AppComponent {
   title: string = '';
   quotes: Quotation[] = QUOTES;
   addButton: boolean = false;
+  titleWorst: string = 'Najgorsze cycaty';
+  titleBest: string = 'Najlepsze cytaty';
 
   quotation: Quotation = {
     author: '',
@@ -25,5 +27,11 @@ export class AppComponent {
   addQuotation() {
     this.quotes.push(this.quotation);
     this.quotation = { author: '', quotation: '', votes: 0 };
+  }
+  bestQuotes() {
+    return this.quotes.filter((q) => q.votes > 0);
+  }
+  worstQuotes() {
+    return this.quotes.filter((q) => q.votes < 0);
   }
 }
