@@ -1,0 +1,22 @@
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { QUOTES } from '../models/data-base';
+import { QuoteListComponent } from './quote-list.component';
+
+describe('QuoteListComponent', () => {
+  let component: QuoteListComponent;
+  let fixture: ComponentFixture<QuoteListComponent>;
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [QuoteListComponent],
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(QuoteListComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

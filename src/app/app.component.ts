@@ -8,30 +8,33 @@ import { Quotation } from './models/quote';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  items = ['item1', 'item2', 'item3', 'item4'];
   title: string = '';
   quotes: Quotation[] = QUOTES;
-  addButton: boolean = false;
+
   titleWorst: string = 'Najgorsze cycaty';
   titleBest: string = 'Najlepsze cytaty';
 
-  quotation: Quotation = {
-    author: '',
-    quotation: '',
-    votes: 0,
-  };
+  // countVote(addOdd: number, index: number) {
+  //   this.quotes[index].votes += addOdd;
+  // }
 
-  countVote(addOdd: number, index: number) {
-    this.quotes[index].votes += addOdd;
-  }
-
-  addQuotation() {
-    this.quotes.push(this.quotation);
-    this.quotation = { author: '', quotation: '', votes: 0 };
-  }
   bestQuotes() {
     return this.quotes.filter((q) => q.votes > 0);
   }
   worstQuotes() {
     return this.quotes.filter((q) => q.votes < 0);
+  }
+  onNewQuotation(event: Quotation) {
+    this.quotes.unshift(event);
+  }
+  // voteValue($event: number, index: number) {
+  //   // console.log($event);
+  //   console.log(index);
+  //   this.quotes[index].votes += $event;
+  // }
+
+  addVote(quotation: Quotation, value: number) {
+    quotation.votes += value;
   }
 }
